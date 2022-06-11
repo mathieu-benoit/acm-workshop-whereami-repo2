@@ -4,11 +4,15 @@ resources:
 - ../base
 namespace: whereami
 patchesJson6902:
-- target:
-    kind: VirtualService
-    name: whereami
-  patch: |-
+- patch: |-
     - op: replace
       path: /spec/hosts
       value:
         - whereami.endpoints.acm-workshop-743-tenant.cloud.goog
+  target:
+    kind: VirtualService
+    name: whereami
+images:
+- name: whereami
+  newName: us-east4-docker.pkg.dev/acm-workshop-743-tenant/containers/whereami
+  newTag: v1.2.8
