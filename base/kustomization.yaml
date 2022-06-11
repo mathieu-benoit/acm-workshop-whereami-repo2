@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 - ../upstream
 - virtualservice.yaml
+- networkpolicy_whereami.yaml
 patchesJson6902:
 - patch: |-
     - op: replace
